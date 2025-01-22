@@ -69,4 +69,4 @@ export function deleteUser(req,res){
           message : "Student deleted" 
          })
     });
-} 
+}  
