@@ -16,7 +16,7 @@ export function getProduct(req,res){
       })
     }
   )
-}
+}      
 
 export function createProduct(req,res){
 
