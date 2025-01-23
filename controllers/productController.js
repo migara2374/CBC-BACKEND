@@ -1,6 +1,6 @@
 import Product  from "../models/product.js";
 
-export function getProduct(req,res){
+export function getProduct(req,res){ 
 
   Product.find().then(
 
