@@ -1,13 +1,30 @@
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv" ; 
+import dotenv from "dotenv" ;
 
 dotenv.config()
 
 export function createUser(req,res){ 
 
-  const newUserData = req.body
+  const newUserData = req.body 
+
+  if(newUserData.type == "admin"){
+
+    if(req.user==null){
+      res.json({
+        message: "Please login as administrator to create admin accounts" 
+      }) 
+      return 
+    } 
+
+    if(req.user.type != "admin"){
+      res.json({
+        message: "Please login as administrator to create admin accounts"
+      })
+      return 
+    }
+  }
 
   newUserData.password = bcrypt.hashSync(newUserData.password, 10)  
 
